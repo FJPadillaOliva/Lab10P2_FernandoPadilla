@@ -336,11 +336,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Pantalla"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_crearPantallaMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jb_crearProcesador">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Procesador"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_crearProcesadorMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

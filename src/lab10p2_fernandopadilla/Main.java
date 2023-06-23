@@ -214,8 +214,18 @@ public class Main extends javax.swing.JFrame {
         });
 
         jb_crearPantalla.setText("Pantalla");
+        jb_crearPantalla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_crearPantallaMouseClicked(evt);
+            }
+        });
 
         jb_crearProcesador.setText("Procesador");
+        jb_crearProcesador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_crearProcesadorMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -400,6 +410,20 @@ public class Main extends javax.swing.JFrame {
         String color = JOptionPane.showInputDialog(this, "Ingrese el color: ");
         teclado.add(new Teclado(material, color, 5));
     }//GEN-LAST:event_jb_crearTecladoMouseClicked
+
+    private void jb_crearPantallaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearPantallaMouseClicked
+        // TODO add your handling code here:
+        int opcion = JOptionPane.showConfirmDialog(this, "La pantalla es tactil?", "Confirmacion", JOptionPane.YES_NO_OPTION);
+        boolean tactil = (opcion == JOptionPane.YES_OPTION);
+        String tipo = JOptionPane.showInputDialog(this, "Ingrese el tipo de pantalla: ");
+        pantalla.add(new Pantalla(tactil, tipo, 30));
+    }//GEN-LAST:event_jb_crearPantallaMouseClicked
+
+    private void jb_crearProcesadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearProcesadorMouseClicked
+        // TODO add your handling code here:
+        int nucleos = Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese la cantidad de nucleos: "));
+        String velocidad = JOptionPane.showInputDialog(this, "Ingrese la velocidad: ");
+    }//GEN-LAST:event_jb_crearProcesadorMouseClicked
 
     /**
      * @param args the command line arguments
