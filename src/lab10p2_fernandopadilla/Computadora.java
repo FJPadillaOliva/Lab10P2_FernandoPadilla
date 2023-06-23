@@ -1,15 +1,17 @@
 
 package lab10p2_fernandopadilla;
 
+import java.util.ArrayList;
+
 
 public class Computadora {
     private String num_serie,año,color,material;
-    private Parte partes;
-
+    private ArrayList <Parte> partes;
+    
     public Computadora() {
     }
 
-    public Computadora(String num_serie, String año, String color, String material, Parte partes) {
+    public Computadora(String num_serie, String año, String color, String material, ArrayList <Parte> partes) {
         this.num_serie = num_serie;
         this.año = año;
         this.color = color;
@@ -49,11 +51,11 @@ public class Computadora {
         this.material = material;
     }
 
-    public Parte getPartes() {
+    public ArrayList <Parte> getPartes() {
         return partes;
     }
 
-    public void setPartes(Parte partes) {
+    public void setPartes(ArrayList <Parte> partes) {
         this.partes = partes;
     }
 
