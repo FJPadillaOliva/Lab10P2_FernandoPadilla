@@ -19,6 +19,9 @@ public class Main extends javax.swing.JFrame {
     ArrayList<Teclado>teclado = new ArrayList();
     ArrayList<Pantalla>pantalla = new ArrayList();
     ArrayList<Procesador>cpu = new ArrayList();
+    ArrayList<Computadora>PCs = new ArrayList();
+    ArrayList<Tecnico>tecnicos = new ArrayList();
+    
     
     public Main() {
         initComponents();
@@ -76,7 +79,7 @@ public class Main extends javax.swing.JFrame {
         tf_edadT = new javax.swing.JTextField();
         tf_generoT = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jb_crearT = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         tf_numeroS1 = new javax.swing.JTextField();
@@ -103,6 +106,16 @@ public class Main extends javax.swing.JFrame {
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
+        tf_nombreT2 = new javax.swing.JTextField();
+        tf_edadT2 = new javax.swing.JTextField();
+        tf_generoT2 = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        jb_modificarT = new javax.swing.JButton();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jComboBox_Tecnico = new javax.swing.JComboBox<>();
+        jLabel33 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -381,11 +394,16 @@ public class Main extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel4.setText("Crear Tecnico");
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton1.setText("Crear");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jb_crearT.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jb_crearT.setText("Crear");
+        jb_crearT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_crearTMouseClicked(evt);
+            }
+        });
+        jb_crearT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jb_crearTActionPerformed(evt);
             }
         });
 
@@ -403,7 +421,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(tf_generoT)
                     .addComponent(tf_edadT)
                     .addComponent(tf_nombreT)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jb_crearT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(261, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -423,7 +441,7 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tf_generoT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 177, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jb_crearT, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46))
         );
 
@@ -576,15 +594,74 @@ public class Main extends javax.swing.JFrame {
 
         jPanel7.setBackground(new java.awt.Color(51, 51, 51));
 
+        jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel29.setText("Modificar Tecnico");
+
+        jb_modificarT.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jb_modificarT.setText("Modificar");
+        jb_modificarT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_modificarTMouseClicked(evt);
+            }
+        });
+        jb_modificarT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_modificarTActionPerformed(evt);
+            }
+        });
+
+        jLabel30.setText("Nombre");
+
+        jLabel31.setText("Edad");
+
+        jLabel32.setText("Genero");
+
+        jLabel33.setText("Tecnico a Modificar");
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(222, 222, 222)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel32)
+                        .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel30)
+                        .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(tf_generoT2)
+                        .addComponent(tf_edadT2)
+                        .addComponent(tf_nombreT2)
+                        .addComponent(jb_modificarT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jComboBox_Tecnico, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel33))
+                .addContainerGap(196, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 522, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel29)
+                .addGap(28, 28, 28)
+                .addComponent(jLabel33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox_Tecnico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tf_nombreT2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tf_edadT2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tf_generoT2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
+                .addComponent(jb_modificarT, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
         );
 
         jTabbedPane1.addTab("Modificar Tecnico", jPanel7);
@@ -603,9 +680,9 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jb_crearTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_crearTActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jb_crearTActionPerformed
 
     private void jButton_CrearPCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CrearPCActionPerformed
         // TODO add your handling code here:
@@ -658,6 +735,22 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jb_modificarPCActionPerformed
 
+    private void jb_crearTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearTMouseClicked
+        // TODO add your handling code here:
+        tecnicos.add(new Tecnico(tf_nombreT.getText(),
+                Integer.parseInt(tf_edadT.getText()),
+                tf_generoT.getText(),
+                0));
+    }//GEN-LAST:event_jb_crearTMouseClicked
+
+    private void jb_modificarTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_modificarTMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_modificarTMouseClicked
+
+    private void jb_modificarTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_modificarTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_modificarTActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -694,7 +787,6 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton_CrearPC;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox10;
@@ -709,6 +801,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox_PantallaNew;
     private javax.swing.JComboBox<String> jComboBox_RAMnew;
     private javax.swing.JComboBox<String> jComboBox_TecladoNew;
+    private javax.swing.JComboBox<String> jComboBox_Tecnico;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -730,7 +823,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -751,17 +849,22 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jb_crearPantalla;
     private javax.swing.JButton jb_crearProcesador;
     private javax.swing.JButton jb_crearRAM;
+    private javax.swing.JButton jb_crearT;
     private javax.swing.JButton jb_crearTeclado;
     private javax.swing.JButton jb_modificarPC;
+    private javax.swing.JButton jb_modificarT;
     private javax.swing.JTextField tf_añoPC;
     private javax.swing.JTextField tf_añoPC2;
     private javax.swing.JTextField tf_colorPC;
     private javax.swing.JTextField tf_colorPC2;
     private javax.swing.JTextField tf_edadT;
+    private javax.swing.JTextField tf_edadT2;
     private javax.swing.JTextField tf_generoT;
+    private javax.swing.JTextField tf_generoT2;
     private javax.swing.JTextField tf_materialPC;
     private javax.swing.JTextField tf_materialPC2;
     private javax.swing.JTextField tf_nombreT;
+    private javax.swing.JTextField tf_nombreT2;
     private javax.swing.JTextField tf_numeroS;
     private javax.swing.JTextField tf_numeroS1;
     // End of variables declaration//GEN-END:variables
