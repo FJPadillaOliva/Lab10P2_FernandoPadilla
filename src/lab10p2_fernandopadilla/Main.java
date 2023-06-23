@@ -4,15 +4,22 @@
  */
 package lab10p2_fernandopadilla;
 
-/**
- *
- * @author Wendy
- */
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
+
 public class Main extends javax.swing.JFrame {
 
     /**
      * Creates new form Main
      */
+    ArrayList<RAM>ram = new ArrayList();
+    ArrayList<DiscoDuro>hdd = new ArrayList();
+    ArrayList<Bateria>bateria = new ArrayList();
+    ArrayList<Teclado>teclado = new ArrayList();
+    ArrayList<Pantalla>pantalla = new ArrayList();
+    ArrayList<Procesador>cpu = new ArrayList();
+    
     public Main() {
         initComponents();
     }
@@ -33,13 +40,22 @@ public class Main extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        tf_nombreT1 = new javax.swing.JTextField();
+        tf_numeroS = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        tf_edadT1 = new javax.swing.JTextField();
-        tf_generoT1 = new javax.swing.JTextField();
+        tf_añoC = new javax.swing.JTextField();
+        tf_color = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        tf_color1 = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jb_crearRAM = new javax.swing.JButton();
+        jb_crearHDD = new javax.swing.JButton();
+        jb_crearBateria = new javax.swing.JButton();
+        jb_crearTeclado = new javax.swing.JButton();
+        jb_crearPantalla = new javax.swing.JButton();
+        jb_crearProcesador = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -53,6 +69,8 @@ public class Main extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -83,6 +101,8 @@ public class Main extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Principal", jPanel2);
 
+        jPanel3.setBackground(new java.awt.Color(51, 51, 51));
+
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel5.setText("Crear PC");
 
@@ -99,6 +119,8 @@ public class Main extends javax.swing.JFrame {
         });
 
         jLabel8.setText("Color");
+
+        jLabel9.setText("Material");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -117,14 +139,17 @@ public class Main extends javax.swing.JFrame {
                                 .addComponent(jLabel5)
                                 .addGap(271, 271, 271))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel6)
-                                .addComponent(tf_nombreT1, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
-                                .addComponent(tf_edadT1)
-                                .addComponent(tf_generoT1))
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(tf_color1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6)
+                                    .addComponent(tf_numeroS, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
+                                    .addComponent(tf_añoC)
+                                    .addComponent(tf_color))
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel9)))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
@@ -135,34 +160,109 @@ public class Main extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tf_nombreT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tf_numeroS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tf_edadT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tf_añoC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tf_generoT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
+                .addComponent(tf_color, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tf_color1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
         );
 
         jTabbedPane1.addTab("Crear Computadora", jPanel3);
 
+        jPanel4.setBackground(new java.awt.Color(51, 51, 51));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel10.setText("Crear Partes");
+
+        jb_crearRAM.setText("RAM");
+        jb_crearRAM.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_crearRAMMouseClicked(evt);
+            }
+        });
+
+        jb_crearHDD.setText("HDD");
+        jb_crearHDD.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_crearHDDMouseClicked(evt);
+            }
+        });
+
+        jb_crearBateria.setText("Bateria");
+        jb_crearBateria.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_crearBateriaMouseClicked(evt);
+            }
+        });
+
+        jb_crearTeclado.setText("Teclado");
+        jb_crearTeclado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_crearTecladoMouseClicked(evt);
+            }
+        });
+
+        jb_crearPantalla.setText("Pantalla");
+
+        jb_crearProcesador.setText("Procesador");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel10)
+                .addGap(237, 237, 237))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(178, 178, 178)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jb_crearTeclado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jb_crearPantalla, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jb_crearProcesador, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jb_crearRAM, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jb_crearHDD, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jb_crearBateria, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 522, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10)
+                .addGap(63, 63, 63)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_crearRAM, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb_crearHDD, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb_crearBateria, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_crearTeclado, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb_crearPantalla, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb_crearProcesador, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(269, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Crear Partes", jPanel4);
+
+        jPanel6.setBackground(new java.awt.Color(51, 51, 51));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -177,6 +277,8 @@ public class Main extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Modificar PC", jPanel6);
 
+        jPanel7.setBackground(new java.awt.Color(51, 51, 51));
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -189,6 +291,8 @@ public class Main extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Modificar Tecnico", jPanel7);
+
+        jPanel5.setBackground(new java.awt.Color(51, 51, 51));
 
         jLabel1.setText("Nombre");
 
@@ -269,6 +373,34 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jb_crearRAMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearRAMMouseClicked
+        // TODO add your handling code here:
+        String marca = JOptionPane.showInputDialog(this, "Ingrese la marca: ");
+        String capacidad = JOptionPane.showInputDialog(this, "Ingrese el tamaño: ");
+        ram.add(new RAM(capacidad, marca, 5));
+    }//GEN-LAST:event_jb_crearRAMMouseClicked
+
+    private void jb_crearHDDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearHDDMouseClicked
+        // TODO add your handling code here:
+        String marca = JOptionPane.showInputDialog(this, "Ingrese la marca: ");
+        String capacidad = JOptionPane.showInputDialog(this, "Ingrese la capacidad: ");
+        hdd.add(new DiscoDuro(capacidad, marca, 10));
+    }//GEN-LAST:event_jb_crearHDDMouseClicked
+
+    private void jb_crearBateriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearBateriaMouseClicked
+        // TODO add your handling code here:
+        String marca = JOptionPane.showInputDialog(this, "Ingrese la marca: ");
+        int capacidad = Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese la capacidad de horas: "));
+        bateria.add(new Bateria(capacidad, marca, 20));
+    }//GEN-LAST:event_jb_crearBateriaMouseClicked
+
+    private void jb_crearTecladoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearTecladoMouseClicked
+        // TODO add your handling code here:
+        String material = JOptionPane.showInputDialog(this, "Ingrese el material: ");
+        String color = JOptionPane.showInputDialog(this, "Ingrese el color: ");
+        teclado.add(new Teclado(material, color, 5));
+    }//GEN-LAST:event_jb_crearTecladoMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -308,6 +440,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -315,6 +448,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -324,11 +458,18 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton jb_crearBateria;
+    private javax.swing.JButton jb_crearHDD;
+    private javax.swing.JButton jb_crearPantalla;
+    private javax.swing.JButton jb_crearProcesador;
+    private javax.swing.JButton jb_crearRAM;
+    private javax.swing.JButton jb_crearTeclado;
+    private javax.swing.JTextField tf_añoC;
+    private javax.swing.JTextField tf_color;
+    private javax.swing.JTextField tf_color1;
     private javax.swing.JTextField tf_edadT;
-    private javax.swing.JTextField tf_edadT1;
     private javax.swing.JTextField tf_generoT;
-    private javax.swing.JTextField tf_generoT1;
     private javax.swing.JTextField tf_nombreT;
-    private javax.swing.JTextField tf_nombreT1;
+    private javax.swing.JTextField tf_numeroS;
     // End of variables declaration//GEN-END:variables
 }
