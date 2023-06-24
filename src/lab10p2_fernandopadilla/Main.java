@@ -50,6 +50,7 @@ public class Main extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jb_menusimular = new javax.swing.JButton();
+        jb_actualizar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -201,14 +202,26 @@ public class Main extends javax.swing.JFrame {
 
         jb_menusimular.setText("Simular");
 
+        jb_actualizar.setText("Actualizar Tabla");
+        jb_actualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_actualizarMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jb_menusimular)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jb_menusimular))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jb_actualizar)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(78, 78, 78))
         );
@@ -221,7 +234,9 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(84, 84, 84)
-                        .addComponent(jb_menusimular)))
+                        .addComponent(jb_menusimular)
+                        .addGap(33, 33, 33)
+                        .addComponent(jb_actualizar)))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
 
@@ -877,10 +892,26 @@ public class Main extends javax.swing.JFrame {
                 partes));
         partes.clear();
         JOptionPane.showMessageDialog(this, "PC creada con exito");
-        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
-        Object[] arreglo = {tf_numeroS.getText(),null};
-        modelo.addRow(arreglo);
     }//GEN-LAST:event_jButton_CrearPCMouseClicked
+
+    private void jb_actualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_actualizarMouseClicked
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        /*Object[] nulo = {null,null};
+        if (PCs.size() >= tecnicos.size()) {
+            for (int i = 0; i < PCs.size(); i++) {
+                modelo.addRow(nulo);
+            }
+        }else{
+            for (int i = 0; i < tecnicos.size(); i++) {
+                modelo.addRow(nulo);
+            }
+        }
+        */
+        for (Computadora PC : PCs) {
+            Object[] nombres = {null,PC.getNum_serie()};
+            modelo.addRow(nombres);
+        }
+    }//GEN-LAST:event_jb_actualizarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -980,6 +1011,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton jb_actualizar;
     private javax.swing.JButton jb_crearBateria;
     private javax.swing.JButton jb_crearHDD;
     private javax.swing.JButton jb_crearPantalla;
