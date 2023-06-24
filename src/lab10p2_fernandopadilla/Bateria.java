@@ -31,7 +31,7 @@ class Bateria extends Parte {
 
     @Override
     public String toString() {
-        return "Bateria{" + "capacidadHoras=" + capacidadHoras + ", material=" + material + '}';
+        return "CapacidadH=" + capacidadHoras + ",material=" + material;
     }
     
     

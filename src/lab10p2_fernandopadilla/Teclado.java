@@ -32,7 +32,7 @@ private String material, color;
 
     @Override
     public String toString() {
-        return "Teclado{" + "material=" + material + ", color=" + color + '}';
+        return "Material=" + material + ",color=" + color;
     }
 
 

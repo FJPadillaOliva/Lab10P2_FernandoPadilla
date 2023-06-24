@@ -5,6 +5,8 @@
 package lab10p2_fernandopadilla;
 
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 
@@ -21,7 +23,7 @@ public class Main extends javax.swing.JFrame {
     ArrayList<Procesador>cpu = new ArrayList();
     ArrayList<Computadora>PCs = new ArrayList();
     ArrayList<Tecnico>tecnicos = new ArrayList();
-    
+    ArrayList<Parte>partes = new ArrayList();
     
     public Main() {
         initComponents();
@@ -53,16 +55,16 @@ public class Main extends javax.swing.JFrame {
         tf_materialPC = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox_RAM = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jComboBox7 = new javax.swing.JComboBox<>();
-        jComboBox8 = new javax.swing.JComboBox<>();
-        jComboBox9 = new javax.swing.JComboBox<>();
-        jComboBox10 = new javax.swing.JComboBox<>();
-        jComboBox11 = new javax.swing.JComboBox<>();
+        jComboBox_HDD = new javax.swing.JComboBox<>();
+        jComboBox_Bateria = new javax.swing.JComboBox<>();
+        jComboBox_Teclado = new javax.swing.JComboBox<>();
+        jComboBox_Pantalla = new javax.swing.JComboBox<>();
+        jComboBox_CPU = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jb_crearRAM = new javax.swing.JButton();
@@ -169,6 +171,11 @@ public class Main extends javax.swing.JFrame {
 
         jButton_CrearPC.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton_CrearPC.setText("Crear");
+        jButton_CrearPC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_CrearPCMouseClicked(evt);
+            }
+        });
         jButton_CrearPC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_CrearPCActionPerformed(evt);
@@ -183,13 +190,25 @@ public class Main extends javax.swing.JFrame {
 
         jLabel12.setText("HDD");
 
+        jComboBox_RAM.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+
         jLabel13.setText("Bateria");
 
         jLabel14.setText("Teclado");
 
-        jLabel15.setText("Panalla");
+        jLabel15.setText("Pantalla");
 
         jLabel16.setText("Procesador");
+
+        jComboBox_HDD.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+
+        jComboBox_Bateria.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+
+        jComboBox_Teclado.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+
+        jComboBox_Pantalla.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+
+        jComboBox_CPU.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -223,26 +242,26 @@ public class Main extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBox_RAM, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jComboBox_HDD, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(125, 125, 125)
                                 .addComponent(jLabel16))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jComboBox_Bateria, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jComboBox_Teclado, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jComboBox_Pantalla, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBox11, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jComboBox_CPU, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(40, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
@@ -258,8 +277,8 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tf_numeroS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox_RAM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox_HDD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -268,8 +287,8 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tf_añoPC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox_Bateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox_Teclado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -278,8 +297,8 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tf_colorPC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox_Pantalla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox_CPU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -693,6 +712,9 @@ public class Main extends javax.swing.JFrame {
         String marca = JOptionPane.showInputDialog(this, "Ingrese la marca: ");
         String capacidad = JOptionPane.showInputDialog(this, "Ingrese el tamaño: ");
         ram.add(new RAM(capacidad, marca, 5));
+        ArrayListComboBoxModel model = new ArrayListComboBoxModel(ram);
+        jComboBox_RAM.setModel(model);
+        JOptionPane.showMessageDialog(this, "Parte creada con exito");
     }//GEN-LAST:event_jb_crearRAMMouseClicked
 
     private void jb_crearHDDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearHDDMouseClicked
@@ -700,13 +722,19 @@ public class Main extends javax.swing.JFrame {
         String marca = JOptionPane.showInputDialog(this, "Ingrese la marca: ");
         String capacidad = JOptionPane.showInputDialog(this, "Ingrese la capacidad: ");
         hdd.add(new DiscoDuro(capacidad, marca, 10));
+        ArrayListComboBoxModel model = new ArrayListComboBoxModel(hdd);
+        jComboBox_HDD.setModel(model);
+        JOptionPane.showMessageDialog(this, "Parte creada con exito");
     }//GEN-LAST:event_jb_crearHDDMouseClicked
 
     private void jb_crearBateriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearBateriaMouseClicked
         // TODO add your handling code here:
-        String marca = JOptionPane.showInputDialog(this, "Ingrese la marca: ");
+        String material = JOptionPane.showInputDialog(this, "Ingrese el material de la bateria: ");
         int capacidad = Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese la capacidad de horas: "));
-        bateria.add(new Bateria(capacidad, marca, 20));
+        bateria.add(new Bateria(capacidad, material, 20));
+        ArrayListComboBoxModel model = new ArrayListComboBoxModel(bateria);
+        jComboBox_Bateria.setModel(model);
+        JOptionPane.showMessageDialog(this, "Parte creada con exito");
     }//GEN-LAST:event_jb_crearBateriaMouseClicked
 
     private void jb_crearTecladoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearTecladoMouseClicked
@@ -714,6 +742,9 @@ public class Main extends javax.swing.JFrame {
         String material = JOptionPane.showInputDialog(this, "Ingrese el material: ");
         String color = JOptionPane.showInputDialog(this, "Ingrese el color: ");
         teclado.add(new Teclado(material, color, 5));
+        ArrayListComboBoxModel model = new ArrayListComboBoxModel(teclado);
+        jComboBox_Teclado.setModel(model);
+        JOptionPane.showMessageDialog(this, "Parte creada con exito");
     }//GEN-LAST:event_jb_crearTecladoMouseClicked
 
     private void jb_crearPantallaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearPantallaMouseClicked
@@ -722,6 +753,9 @@ public class Main extends javax.swing.JFrame {
         boolean tactil = (opcion == JOptionPane.YES_OPTION);
         String tipo = JOptionPane.showInputDialog(this, "Ingrese el tipo de pantalla: ");
         pantalla.add(new Pantalla(tactil, tipo, 30));
+        ArrayListComboBoxModel model = new ArrayListComboBoxModel(pantalla);
+        jComboBox_Pantalla.setModel(model);
+        JOptionPane.showMessageDialog(this, "Parte creada con exito");
     }//GEN-LAST:event_jb_crearPantallaMouseClicked
 
     private void jb_crearProcesadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearProcesadorMouseClicked
@@ -729,6 +763,9 @@ public class Main extends javax.swing.JFrame {
         int nucleos = Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese la cantidad de nucleos: "));
         String velocidad = JOptionPane.showInputDialog(this, "Ingrese la velocidad: ");
         cpu.add(new Procesador(nucleos, velocidad, 15));
+        ArrayListComboBoxModel model = new ArrayListComboBoxModel(cpu);
+        jComboBox_CPU.setModel(model);
+        JOptionPane.showMessageDialog(this, "Parte creada con exito");
     }//GEN-LAST:event_jb_crearProcesadorMouseClicked
 
     private void jb_modificarPCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_modificarPCActionPerformed
@@ -741,6 +778,7 @@ public class Main extends javax.swing.JFrame {
                 Integer.parseInt(tf_edadT.getText()),
                 tf_generoT.getText(),
                 0));
+        JOptionPane.showMessageDialog(this, "Tecnico agregado con exito");
     }//GEN-LAST:event_jb_crearTMouseClicked
 
     private void jb_modificarTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_modificarTMouseClicked
@@ -750,6 +788,29 @@ public class Main extends javax.swing.JFrame {
     private void jb_modificarTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_modificarTActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jb_modificarTActionPerformed
+
+    private void jButton_CrearPCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_CrearPCMouseClicked
+        // TODO add your handling code here:
+        int cpuI = jComboBox_CPU.getSelectedIndex() - 1;
+        int ramI = jComboBox_RAM.getSelectedIndex() - 1;
+        int pantallaI = jComboBox_Pantalla.getSelectedIndex() - 1;
+        int bateriaI = jComboBox_Bateria.getSelectedIndex() - 1;
+        int hddI = jComboBox_HDD.getSelectedIndex() - 1;
+        int tecladoI = jComboBox_Teclado.getSelectedIndex() - 1;
+        partes.add(cpu.get(cpuI));
+        partes.add(ram.get(ramI));
+        partes.add(pantalla.get(pantallaI));
+        partes.add(bateria.get(bateriaI));
+        partes.add(hdd.get(hddI));
+        partes.add(teclado.get(tecladoI));
+        PCs.add(new Computadora(tf_numeroS.getText(),
+                tf_añoPC.getText(),
+                tf_colorPC.getText(), 
+                tf_materialPC.getText(), 
+                partes));
+        partes.clear();
+        JOptionPane.showMessageDialog(this, "PC creada con exito");
+    }//GEN-LAST:event_jButton_CrearPCMouseClicked
 
     /**
      * @param args the command line arguments
@@ -788,18 +849,18 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_CrearPC;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox10;
-    private javax.swing.JComboBox<String> jComboBox11;
-    private javax.swing.JComboBox<String> jComboBox7;
-    private javax.swing.JComboBox<String> jComboBox8;
-    private javax.swing.JComboBox<String> jComboBox9;
+    private javax.swing.JComboBox<String> jComboBox_Bateria;
     private javax.swing.JComboBox<String> jComboBox_BateriaNew;
+    private javax.swing.JComboBox<String> jComboBox_CPU;
     private javax.swing.JComboBox<String> jComboBox_CPUnew;
+    private javax.swing.JComboBox<String> jComboBox_HDD;
     private javax.swing.JComboBox<String> jComboBox_HDDnew;
     private javax.swing.JComboBox<String> jComboBox_PCmod;
+    private javax.swing.JComboBox<String> jComboBox_Pantalla;
     private javax.swing.JComboBox<String> jComboBox_PantallaNew;
+    private javax.swing.JComboBox<String> jComboBox_RAM;
     private javax.swing.JComboBox<String> jComboBox_RAMnew;
+    private javax.swing.JComboBox<String> jComboBox_Teclado;
     private javax.swing.JComboBox<String> jComboBox_TecladoNew;
     private javax.swing.JComboBox<String> jComboBox_Tecnico;
     private javax.swing.JLabel jLabel1;

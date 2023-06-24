@@ -33,6 +33,6 @@ public class DiscoDuro extends Parte {
 
     @Override
     public String toString() {
-        return "DiscoDuro{" + "tamaño=" + tamaño + ", marca=" + marca + '}';
+        return "tamaño=" + tamaño + ",marca=" + marca;
     }    
 }
